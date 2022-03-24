@@ -3,10 +3,37 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.example</groupId>
+    <groupId>io.github.Kloping</groupId>
     <artifactId>spt-redis</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+    <name>spt-redis</name>
+    <url>https://github.com/Kloping/spt-redis</url>
+    <description>SpTool</description>
+    <licenses>
+        <license>
+            <name>GNU AFFERO GENERAL PUBLIC LICENSE Version 3</name>
+            <url>https://raw.githubusercontent.com/kloping/spt-redis/master/LICENSE</url>
+            <distribution>repo</distribution>
+            <comments>--</comments>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git://github.com/Kloping/spt-redis.git</connection>
+        <developerConnection>scm:git:ssh://github.com/Kloping/spt-redis</developerConnection>
+        <url>https://github.com/Kloping/spt-redis</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>Kloping</name>
+            <id>Kloping</id>
+            <email>hrs3474006766@outlook.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
