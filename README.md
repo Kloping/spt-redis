@@ -45,3 +45,7 @@ public class Controller0 {
 }
 
 ```
+
+
+[见代码](https://github.com/Kloping/spt-redis/blob/master/src/test/java/p0/T0.java)
+[配置](https://github.com/Kloping/spt-redis/blob/master/conf/conf.txt)
