@@ -1,2 +1,2 @@
 spt.redis.host=localhost
-spt.redis.port=localhost
+spt.redis.port=6379
