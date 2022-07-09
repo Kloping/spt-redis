@@ -3,11 +3,10 @@ package p0;
 import io.github.kloping.MySpringTool.StarterApplication;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.CommentScan;
-import io.github.kloping.serialize.HMLObject;
 import p0.p1.Controller0;
-import p0.p1.E0;
+import redis.clients.jedis.JedisPool;
 
-import java.util.*;
+import java.util.Map;
 
 
 /**
@@ -17,6 +16,8 @@ import java.util.*;
 public class T0 implements Runnable {
     @AutoStand
     private static Controller0 source;
+    @AutoStand
+    private static JedisPool jedisPool;
 
     public static void main(String[] args) throws Throwable {
         StarterApplication.addConfFile("conf/conf.txt");
@@ -24,19 +25,14 @@ public class T0 implements Runnable {
         test();
     }
 
-    private static final String KEY0 = "key0";
+    private static final String KEY0 = "temp_ghost";
 
     private static void test() {
-//        E0 e0 = new E0(44);
-//        E0 e1 = source.redisOperate1.setValue("k0", e0).getValue("k0");
-//        System.out.println(e1.equals(e0));
-        Map<String, E0> e0Map = new HashMap<>();
-        e0Map.put("1", new E0(4));
-        source.redisOperate3.setValue(KEY0, e0Map);
+//        Map<String, E0> e0Map = new HashMap<>();
+//        e0Map.put("1", new E0(4));
+//        source.redisOperate3.setValue(KEY0, e0Map);
 
         Map map = source.redisOperate3.getValue(KEY0);
-
-
         System.out.println("======");
     }
 

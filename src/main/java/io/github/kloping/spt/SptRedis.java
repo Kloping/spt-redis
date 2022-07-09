@@ -1,7 +1,7 @@
 package io.github.kloping.spt;
 
 import com.alibaba.fastjson.JSON;
-import io.github.kloping.MySpringTool.StarterApplication;
+import io.github.kloping.MySpringTool.Setting;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Controller;
 import io.github.kloping.MySpringTool.annotations.Entity;
@@ -24,6 +24,12 @@ public class SptRedis implements Extension.ExtensionRunnable, ClassAttributeMana
     public static final String NAME = "spt-redis";
     private ContextManager contextManager;
     private Set<Field> fields = new HashSet<>();
+    private Setting setting;
+
+    @Override
+    public void setSetting(Setting setting) {
+        this.setting = setting;
+    }
 
     @Override
     public void manager(AccessibleObject accessibleObject, ContextManager contextManager) throws InvocationTargetException, IllegalAccessException {
@@ -46,12 +52,12 @@ public class SptRedis implements Extension.ExtensionRunnable, ClassAttributeMana
 
     @Override
     public void run() throws Throwable {
-        StarterApplication.PRE_SCAN_RUNNABLE.add(() -> {
-            StarterApplication.Setting.INSTANCE.getClassManager().registeredAnnotation(Controller.class, this);
-            StarterApplication.Setting.INSTANCE.getClassManager().registeredAnnotation(Entity.class, this);
+        setting.getPRE_SCAN_RUNNABLE().add(() -> {
+            setting.getClassManager().registeredAnnotation(Controller.class, this);
+            setting.getClassManager().registeredAnnotation(Entity.class, this);
         });
-        StarterApplication.POST_SCAN_RUNNABLE.add(() -> {
-            contextManager = StarterApplication.Setting.INSTANCE.getContextManager();
+        setting.getPOST_SCAN_RUNNABLE().add(() -> {
+            contextManager = setting.getContextManager();
             String host = contextManager.getContextEntity(String.class, "spt.redis.host");
             int port = 6379;
             Integer i = contextManager.getContextEntity(Integer.class, "spt.redis.port");
