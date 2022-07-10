@@ -40,6 +40,13 @@ public abstract class RedisOperate<T> {
         return this;
     }
 
+    public boolean containsKey(String key) {
+        Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        boolean k = jedis.exists(key);
+        jedis.close();
+        return k;
+    }
+
     public boolean delKey(String key) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
         long n = jedis.del(key);
