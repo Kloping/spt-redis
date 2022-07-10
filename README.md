@@ -10,7 +10,7 @@
     <dependency>
         <groupId>io.github.Kloping</groupId>
         <artifactId>spt-redis</artifactId>
-        <version>0.1</version>
+        <version>0.2</version>
     </dependency>
 </dependencies>
 
