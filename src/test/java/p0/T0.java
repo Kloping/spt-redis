@@ -28,12 +28,15 @@ public class T0 implements Runnable {
     private static final String KEY0 = "temp_ghost";
 
     private static void test() {
-//        Map<String, E0> e0Map = new HashMap<>();
-//        e0Map.put("1", new E0(4));
-//        source.redisOperate3.setValue(KEY0, e0Map);
+//        List<String> list = source.redisOperate2.getValue(KEY0);
+//        list.add("a" + list.size());
+//        source.redisOperate2.setValue(KEY0, list);
+//        System.out.println("======");
 
-        Map map = source.redisOperate3.getValue(KEY0);
-        System.out.println("======");
+        Map<String, String> map = source.redisOperate4.getValue(KEY0);
+        map.put("a" + map.size(), "b" + map.size());
+        map.put("a0", "b1");
+        source.redisOperate4.setValue(KEY0, map);
     }
 
     @Override

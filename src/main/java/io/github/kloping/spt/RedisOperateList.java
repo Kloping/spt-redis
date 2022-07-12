@@ -1,6 +1,7 @@
 package io.github.kloping.spt;
 
 import io.github.kloping.MySpringTool.interfaces.component.ContextManager;
+import io.github.kloping.MySpringTool.interfaces.component.HttpClientManager;
 import redis.clients.jedis.Jedis;
 
 import java.util.List;
@@ -30,6 +31,8 @@ public class RedisOperateList<T extends List> extends RedisOperate<T> {
     @Override
     RedisOperate setValue0(String key, T o, Jedis jedis) {
         List list = (List) o;
+        List l0 = getValue(key);
+        for (Object o1 : l0) {list.remove(o1);}
         jedis.rpush(key, l2s(valueType, list));
         return this;
     }

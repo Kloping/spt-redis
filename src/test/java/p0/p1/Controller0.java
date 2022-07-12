@@ -23,4 +23,7 @@ public class Controller0 {
 
     @AutoStand
     public RedisOperate<Map<String, E0>> redisOperate3;
+
+    @AutoStand
+    public RedisOperate<Map<String, String>> redisOperate4;
 }

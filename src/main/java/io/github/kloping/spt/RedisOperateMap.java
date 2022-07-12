@@ -45,7 +45,7 @@ public class RedisOperateMap<T extends Map> extends RedisOperate<T> {
     }
 
     @Override
-     RedisOperate setValue0(String key, T o, Jedis jedis) {
+    RedisOperate setValue0(String key, T o, Jedis jedis) {
         Map map = o;
         List<String> list0 = Arrays.asList(l2s(LinkedList.class, map.keySet()));
         List<String> list1 = Arrays.asList(l2s(LinkedList.class, map.values()));
@@ -53,7 +53,7 @@ public class RedisOperateMap<T extends Map> extends RedisOperate<T> {
         for (int i = 0; i < list0.size(); i++) {
             m0.put(list0.get(i), list1.get(i));
         }
-        jedis.hset(key,m0);
+        jedis.hset(key, m0);
         return this;
     }
 }
