@@ -10,7 +10,7 @@
     <dependency>
         <groupId>io.github.Kloping</groupId>
         <artifactId>spt-redis</artifactId>
-        <version>0.2</version>
+        <version>0.2.3</version>
     </dependency>
 </dependencies>
 
@@ -31,7 +31,8 @@ import java.util.Map;
  */
 @Controller
 public class Controller0 {
-    @AutoStand
+    //id指定db index
+    @AutoStand(id="0")
     public RedisOperate<String> redisOperate0;
 
     @AutoStand
