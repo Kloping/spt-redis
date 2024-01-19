@@ -121,6 +121,15 @@ public class SptRedis implements Extension.ExtensionRunnable, ClassAttributeMana
             }
         }
         if (redisOperate == null) return;
+        AutoStand autoStand = field.getDeclaredAnnotation(AutoStand.class);
+        String id = autoStand.id();
+        Integer dbIndex = 0;
+        try {
+            dbIndex = Integer.valueOf(id.trim());
+        } catch (NumberFormatException e) {
+
+        }
+        redisOperate.setDbIndex(dbIndex);
         if (ClassUtils.isStatic(field)) {
             field.set(null, redisOperate);
         } else {

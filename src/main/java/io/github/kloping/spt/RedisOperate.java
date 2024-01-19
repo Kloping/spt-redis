@@ -14,13 +14,24 @@ public abstract class RedisOperate<T> {
     private Class<T> valueClass;
     private ContextManager contextManager;
     private List list = new LinkedList();
+    private Integer dbIndex = 0;
 
     public RedisOperate(ContextManager contextManager) {
         this.contextManager = contextManager;
     }
 
+    public RedisOperate(ContextManager contextManager, Integer dbIndex) {
+        this.contextManager = contextManager;
+        this.dbIndex = dbIndex;
+    }
+
+    void setDbIndex(Integer dbIndex) {
+        this.dbIndex = dbIndex;
+    }
+
     public T getValue(String key) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        jedis.select(dbIndex);
         T t = getValue0(key, jedis);
         jedis.close();
         int i = list.indexOf(t);
@@ -32,6 +43,7 @@ public abstract class RedisOperate<T> {
 
     public RedisOperate<T> setValue(String key, T t) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        jedis.select(dbIndex);
         setValue0(key, t, jedis);
         jedis.close();
         if (!list.contains(t)) {
@@ -42,6 +54,7 @@ public abstract class RedisOperate<T> {
 
     public boolean containsKey(String key) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        jedis.select(dbIndex);
         boolean k = jedis.exists(key);
         jedis.close();
         return k;
@@ -49,6 +62,7 @@ public abstract class RedisOperate<T> {
 
     public boolean delKey(String key) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        jedis.select(dbIndex);
         long n = jedis.del(key);
         jedis.close();
         return n > 0;
@@ -56,6 +70,7 @@ public abstract class RedisOperate<T> {
 
     public void execute(RedisExecute execute) {
         Jedis jedis = contextManager.getContextEntity(JedisPool.class).getResource();
+        jedis.select(dbIndex);
         execute.execute(jedis);
         jedis.close();
     }

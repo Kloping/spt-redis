@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.Kloping</groupId>
     <artifactId>spt-redis</artifactId>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
     <packaging>jar</packaging>
     <name>spt-redis</name>
     <url>https://github.com/Kloping/spt-redis</url>
