@@ -1,8 +1,8 @@
 package p0.p1;
 
-import io.github.kloping.MySpringTool.annotations.AutoStand;
-import io.github.kloping.MySpringTool.annotations.Controller;
 import io.github.kloping.spt.RedisOperate;
+import io.github.kloping.spt.annotations.AutoStand;
+import io.github.kloping.spt.annotations.Controller;
 
 import java.util.List;
 import java.util.Map;

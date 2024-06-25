@@ -1,6 +1,6 @@
 package io.github.kloping.spt;
 
-import io.github.kloping.MySpringTool.interfaces.component.ContextManager;
+import io.github.kloping.spt.interfaces.component.ContextManager;
 import io.github.kloping.object.ObjectUtils;
 import redis.clients.jedis.Jedis;
 

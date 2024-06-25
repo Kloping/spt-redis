@@ -1,7 +1,7 @@
 package io.github.kloping.spt;
 
 import com.alibaba.fastjson.JSON;
-import io.github.kloping.MySpringTool.interfaces.component.ContextManager;
+import io.github.kloping.spt.interfaces.component.ContextManager;
 import redis.clients.jedis.Jedis;
 
 /**

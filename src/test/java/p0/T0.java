@@ -1,8 +1,8 @@
 package p0;
 
-import io.github.kloping.MySpringTool.StarterApplication;
-import io.github.kloping.MySpringTool.annotations.AutoStand;
-import io.github.kloping.MySpringTool.annotations.CommentScan;
+import io.github.kloping.spt.StarterObjectApplication;
+import io.github.kloping.spt.annotations.AutoStand;
+import io.github.kloping.spt.annotations.ComponentScan;
 import p0.p1.Controller0;
 import redis.clients.jedis.JedisPool;
 
@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author github.kloping
  */
-@CommentScan(path = "p0.p1")
+@ComponentScan(path = "p0.p1")
 public class T0 implements Runnable {
     @AutoStand
     private static Controller0 source;
@@ -20,8 +20,9 @@ public class T0 implements Runnable {
     private static JedisPool jedisPool;
 
     public static void main(String[] args) throws Throwable {
-        StarterApplication.addConfFile("conf/conf.txt");
-        StarterApplication.run(T0.class);
+        StarterObjectApplication objectApplication = new StarterObjectApplication(T0.class);
+        objectApplication.addConfFile("conf/conf.txt");
+        objectApplication.run(T0.class);
         test();
     }
 

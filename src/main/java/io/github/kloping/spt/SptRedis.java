@@ -1,13 +1,13 @@
 package io.github.kloping.spt;
 
 import com.alibaba.fastjson.JSON;
-import io.github.kloping.MySpringTool.Setting;
-import io.github.kloping.MySpringTool.annotations.AutoStand;
-import io.github.kloping.MySpringTool.annotations.Controller;
-import io.github.kloping.MySpringTool.annotations.Entity;
-import io.github.kloping.MySpringTool.interfaces.Extension;
-import io.github.kloping.MySpringTool.interfaces.component.ContextManager;
-import io.github.kloping.MySpringTool.interfaces.component.up0.ClassAttributeManager;
+import io.github.kloping.spt.Setting;
+import io.github.kloping.spt.annotations.AutoStand;
+import io.github.kloping.spt.annotations.Controller;
+import io.github.kloping.spt.annotations.Entity;
+import io.github.kloping.spt.interfaces.Extension;
+import io.github.kloping.spt.interfaces.component.ContextManager;
+import io.github.kloping.spt.interfaces.component.up0.ClassAttributeManager;
 import io.github.kloping.clasz.ClassUtils;
 import io.github.kloping.object.ObjectUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
